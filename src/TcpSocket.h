@@ -25,7 +25,7 @@
 #ifndef TCPSOCKET_H
 #define TCPSOCKET_H
 
-#include <QQuickItem>
+#include <QObject>
 #include <QTcpSocket>
 #include <QList>
 
@@ -40,7 +40,7 @@ namespace QMLTcpSockets{
  * Can be created from a native socket descriptor returned from a TcpServer incoming connection, or can connect to a peer on its own.
  * Due to the sandboxing of WinRT, cannot listen on nor connect to localhost sockets on this platform.
  */
-class TcpSocket : public QQuickItem {
+class TcpSocket : public QObject {
     /* *INDENT-OFF* */
     Q_OBJECT
     /* *INDENT-ON* */
@@ -60,7 +60,7 @@ public:
      *
      * @param parent The QML parent
      */
-    TcpSocket(QQuickItem* parent = 0);
+    TcpSocket(QObject* parent = 0);
 
     /**
      * @brief Creates a new TcpSocket with the given QML parent, calls socketDescriptor->deleteLater()
@@ -68,7 +68,7 @@ public:
      * @param socketDescriptor Descriptor to the external native socket that was opened outside this wrapper, calls deleteLater() on it in the end
      * @param parent The QML parent
      */
-    TcpSocket(QMLTcpSockets::QIntPtr* socketDescriptor, QQuickItem* parent = 0);
+    TcpSocket(QMLTcpSockets::QIntPtr* socketDescriptor, QObject* parent = 0);
 
     /**
      * @brief Destroys this TcpSocket

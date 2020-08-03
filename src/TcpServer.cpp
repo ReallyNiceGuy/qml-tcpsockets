@@ -26,8 +26,8 @@
 
 namespace QMLTcpSockets{
 
-TcpServer::TcpServer(QQuickItem* parent):
-    QQuickItem(parent),
+TcpServer::TcpServer(QObject* parent):
+    QObject(parent),
     server(this)
 {
     host = "0.0.0.0";

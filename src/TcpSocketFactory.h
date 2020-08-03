@@ -25,7 +25,7 @@
 #ifndef TCPSOCKETFACTORY_H
 #define TCPSOCKETFACTORY_H
 
-#include <QQuickItem>
+#include <QObject>
 
 #include "TcpSocket.h"
 #include "QIntPtr.h"
@@ -36,7 +36,7 @@ namespace QMLTcpSockets{
  * @brief Creates new TcpSocket from native socket descriptor (returned from a TcpServer incoming connection).
  * @singleton
  */
-class TcpSocketFactory : public QQuickItem {
+class TcpSocketFactory : public QObject {
     /* *INDENT-OFF* */
     Q_OBJECT
     /* *INDENT-ON* */
@@ -50,7 +50,7 @@ public:
      *
      * @param parent The QML parent
      */
-    TcpSocketFactory(QQuickItem* parent = 0);
+    TcpSocketFactory(QObject* parent = 0);
 
     /**
      * @brief Destroys this TcpSocketFactory
@@ -68,7 +68,7 @@ public slots:
      * @param parent QML parent of the newly created TcpSocket
      * @return New socket, open if the descriptor is valid
      */
-    static QMLTcpSockets::TcpSocket* fromDescriptor(QMLTcpSockets::QIntPtr* socketDescriptor, QQuickItem* parent = 0);
+    static QMLTcpSockets::TcpSocket* fromDescriptor(QMLTcpSockets::QIntPtr* socketDescriptor, QObject* parent = 0);
 
 };
 

@@ -26,11 +26,11 @@
 
 namespace QMLTcpSockets{
 
-TcpSocketFactory::TcpSocketFactory(QQuickItem* parent) : QQuickItem(parent){ }
+TcpSocketFactory::TcpSocketFactory(QObject* parent) : QObject(parent){ }
 
 TcpSocketFactory::~TcpSocketFactory(){ }
 
-TcpSocket* TcpSocketFactory::fromDescriptor(QIntPtr* socketDescriptor, QQuickItem* parent){
+TcpSocket* TcpSocketFactory::fromDescriptor(QIntPtr* socketDescriptor, QObject* parent){
     return new TcpSocket(socketDescriptor, parent);
 }
 

@@ -4,7 +4,8 @@ TARGET = qmltcpsocketsplugin
 CONFIG += qt plugin c++11
 CONFIG -= android_install
 
-QT += qml quick
+QT += qml
+QT -= gui
 
 unix{
     QMAKE_CXXFLAGS -= -O2

@@ -25,7 +25,7 @@
 #ifndef TCPSERVER_H
 #define TCPSERVER_H
 
-#include <QQuickItem>
+#include <QObject>
 
 #include "QTcpServerPub.h"
 #include "TcpSocket.h"
@@ -38,7 +38,7 @@ namespace QMLTcpSockets{
  *
  * Due to the sandboxing of WinRT, cannot listen on nor connect to localhost sockets on this platform.
  */
-class TcpServer : public QQuickItem {
+class TcpServer : public QObject {
     /* *INDENT-OFF* */
     Q_OBJECT
     /* *INDENT-ON* */
@@ -61,7 +61,7 @@ public:
      *
      * @param parent The QML parent
      */
-    TcpServer(QQuickItem* parent = 0);
+    TcpServer(QObject* parent = 0);
 
     /**
      * @brief Destroys this TcpServer

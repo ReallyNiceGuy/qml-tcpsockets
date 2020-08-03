@@ -28,8 +28,8 @@
 
 namespace QMLTcpSockets{
 
-TcpSocket::TcpSocket(QQuickItem* parent):
-    QQuickItem(parent),
+TcpSocket::TcpSocket(QObject* parent):
+    QObject(parent),
     socket(this)
 {
     connect(&socket, SIGNAL(connected()), this, SIGNAL(connected()));
@@ -40,7 +40,7 @@ TcpSocket::TcpSocket(QQuickItem* parent):
     port = 0;
 }
 
-TcpSocket::TcpSocket(QIntPtr* socketDescriptor, QQuickItem* parent):
+TcpSocket::TcpSocket(QIntPtr* socketDescriptor, QObject* parent):
     TcpSocket(parent)
 {
     socket.setSocketDescriptor(socketDescriptor->ptr);
